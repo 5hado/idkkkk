@@ -1,0 +1,27 @@
+
+<h1 style="text-align: center;">Board Games</h1>
+ 
+  <table style="margin: 0 auto">
+  
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Player Range</th>
+        <th>Publisher</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @boardgames.each do |boardgame| %>
+        <tr>
+          <td><%= link_to boardgame.title, index_path(boardgame) %></td>
+          <td><%= boardgame.category %></td>
+          <td><%= boardgame.min_player %> - <%= boardgame.max_player %></td>
+          <td><%= boardgame.publisher %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  
+  </table>
+
