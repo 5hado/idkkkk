@@ -17,10 +17,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_073702) do
   create_table "board_games", force: :cascade do |t|
     t.string "title"
     t.string "category"
-    t.string "min_player"
-    t.string "max_player"
+    t.integer "min_player"
+    t.integer "max_player"
     t.string "publisher"
-    t.string "description"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
