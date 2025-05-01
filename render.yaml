@@ -1,23 +1,23 @@
 databases:
-  - name: rails-users-render  # Use the name of your Render PostgreSQL database
+  - name: rails-users-render # Fill in "name" from the Render PostgreSQL DB you created
     plan: free
 
 services:
   - type: web
-    name: rails-users-render  # Name for your web app
+    name: rails-users-render # Fill in a name for your web app
     runtime: ruby
     plan: free
-    region: oregon  # Match this to your database's region
-    buildCommand: "./bin/render-build.sh"
+    region: oregon # Fill in "region" to match the Render PostgreSQL DB's Region -- Options are oregon (default), ohio, virginia, frankfurt, singapore
+    buildCommand: "./bin/render-build.sh" # This runs the script file we created
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: rails-users-render
+          name: rails-users-render # Fill in "name" from the Render PostgresQL DB you created
           property: connectionString
       - key: RAILS_ENV
         value: production
       - key: RAILS_MASTER_KEY
-        sync: false  # Ensure this key is added manually in the dashboard
+        sync: false
       - key: WEB_CONCURRENCY
-        value: "2"  # Default for Puma; adjust as needed
+        value: 2 # sensible default
