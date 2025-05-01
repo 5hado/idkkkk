@@ -79,12 +79,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: your_app_production_db
-
+  primary:
+    adapter: postgresql
+    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
   cable:
     adapter: postgresql
-    database: your_app_production_cable_db
-    username: <%= ENV['DATABASE_USERNAME'] %>
-    password: <%= ENV['DATABASE_PASSWORD'] %>
-    host: <%= ENV['DATABASE_HOST'] %>
+    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
