@@ -79,4 +79,12 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+  <<: *default
+  database: your_app_production_db
+
+  cable:
+    adapter: postgresql
+    database: your_app_production_cable_db
+    username: <%= ENV['DATABASE_USERNAME'] %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV['DATABASE_HOST'] %>
