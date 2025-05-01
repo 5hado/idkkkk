@@ -81,7 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: board_game_library_production
+    url: <%= ENV["DATABASE_URL"] %>
     username: board_game_library
     password: <%= ENV["BOARD_GAME_LIBRARY_DATABASE_PASSWORD"] %>
   cache:
