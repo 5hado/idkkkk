@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgresql
+  adapter: async
   host: <%= ENV['DATABASE_HOST'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
